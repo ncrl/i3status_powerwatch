@@ -9,3 +9,4 @@ to
 ```
         status_command /usr/local/bin/i3status.sh 
 ```
+3. Reload configuration for your i3. (`powerkey+shift+r` by default)
