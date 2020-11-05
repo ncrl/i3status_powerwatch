@@ -1,10 +1,10 @@
 i3status | while :  
-do 
-	read line ; 
-	A=`cat /sys/class/power_supply/BAT0/power_now`;
-	B=` echo "scale=2; $A / 1000000" | bc` ; 
+do
+        read line ;
+        A1=`cat /sys/class/power_supply/BAT0/voltage_now`;
+        A2=`cat /sys/class/power_supply/BAT0/current_now`;
+        B=$(awk "BEGIN {print ($A1*$A2/1000000000000.0)}")
 line="${line/[{/[{\"name\":\"Power\",\"background\":\"#ff0000\",\"full_text\":\"$B\ W\"\},{}"
-	echo "$line" || exit 1 ;
+        echo "$line" || exit 1 ;
 
 done
-
